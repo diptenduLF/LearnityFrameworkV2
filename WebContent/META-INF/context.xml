@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/LearnITyKnowledgeEngine" docBase="J:/" debug="0"
+	reloadable="true" crossContext="true" useHttpOnly="false">
+
+	<Resource name="jdbc/learnityDB1" auth="Container"
+		type="javax.sql.DataSource" username="root" password="aktpl"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/lkeapplication14052022?sslMode=DISABLED&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;useUnicode=yes&amp;characterEncoding=UTF8&amp;rewriteBatchedStatements=true"
+		removeAbandonedTimeout="10" maxWaitMillis="10000"
+		removeAbandonedOnBorrow="true" maxTotal="20" logAbandoned="true"></Resource>
+
+	<Resource name="jdbc/learnityDB" auth="Container"
+		type="javax.sql.DataSource" username="root" password="aktpl"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/lkeframework?sslMode=DISABLED&amp;allowPublicKeyRetrieval=true"
+		removeAbandonedTimeout="10" maxWaitMillis="10000"
+		removeAbandonedOnBorrow="true" maxTotal="1" logAbandoned="true"></Resource>
+
+</Context>
+
+<!-- <Resource name="jdbc/learnityDB1" auth="Container" type="javax.sql.DataSource" 
+	username="root" password="" driverClassName="com.p6spy.engine.spy.P6SpyDriver" 
+	url="jdbc:p6spy:mysql://localhost:3306/learnityapplication_new?zeroDateTimeBehavior=convertToNull" 
+	removeAbandonedTimeout="10" maxWaitMillis="10000" removeAbandonedOnBorrow="true" 
+	maxTotal="1" logAbandoned="true" ></Resource> username="learnitymsmeuser" 
+	password="learnitymsmeuser" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/learnityapplicationmsme?zeroDateTimeBehavior=convertToNull" 
+	username="learnitymsmeuser" password="learnitymsmeuser" driverClassName="com.mysql.jdbc.Driver" 
+	url="jdbc:mysql://localhost:3306/learnitycoreadminmsme?zeroDateTimeBehavior=convertToNull" -->
+

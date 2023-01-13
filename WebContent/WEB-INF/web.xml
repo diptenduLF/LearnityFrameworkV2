@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <description>LearnITy Knowledge Engine</description>
+  <display-name>LearnITy Knowledge Engine</display-name>
+  
+  <absolute-ordering/>
+  <servlet>
+    <servlet-name>dwr-invoker</servlet-name>
+    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+    <init-param>
+      <param-name>interface</param-name>
+      <param-value>util.dwr.HttpCachingInterfaceProcessor</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>activeReverseAjaxEnabled</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>initApplicationScopeCreatorsAtStartup</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxWaitAfterWrite</param-name>
+      <param-value>-1</param-value>
+    </init-param>
+    <init-param>
+  		<param-name>crossDomainSessionSecurity</param-name>
+  		<param-value>false</param-value>
+	</init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>InitHostInfo</servlet-name>
+    <servlet-class>learnityInit.InitHostInfo</servlet-class>
+    <init-param>
+      <param-name>AdminPath</param-name>
+      <param-value>E:\LKE_resources\adminpath</param-value>
+    </init-param>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dwr-invoker</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>300</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+  <resource-ref>
+    <description>
+			Resource reference to a factory for java.sql.Connection
+			instances that may be used for talking to a particular
+			database that is configured in the META-INF/context.xml file.
+		</description>
+    <res-ref-name>jdbc/learnityDB</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <resource-ref>
+    <description>
+			Resource reference to a factory for java.sql.Connection
+			instances that may be used for talking to a particular
+			database that is configured in the META-INF/context.xml file.
+		</description>
+    <res-ref-name>jdbc/learnityDB1</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  
+	<servlet>
+        <servlet-name>captchaServlet</servlet-name>
+        <servlet-class>comv2.aunwesha.lfutil.CaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>captchaServlet</servlet-name>
+        <url-pattern>/captchaServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
